@@ -41,7 +41,7 @@ class main:
         payment_processor.process_payment(100.0)
 
         payment_processor = PaymentGateway(paypal_processor)
-        payment_processor.process_payment(200.0)
+        payment_processor.process_payment(500.0)
 
         
         payment_processor = PaymentGateway(upi_processor)
