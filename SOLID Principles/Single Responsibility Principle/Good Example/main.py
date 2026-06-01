@@ -6,6 +6,6 @@ user = User("Abhishek", "alice@example.com", "password123")
 database = Database()
 
 user.display_user_info()
-
+ 
 database.save_user(user)
-database.change_user_email(user, "alice_new@example.com")
+user.change_password("newpassword456")

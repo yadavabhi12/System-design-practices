@@ -9,4 +9,8 @@ class User:
         print(f"Email: {self.email}")
         print(f"Password: {self.password}")
 
-   
+        print("User information displayed.")
+
+    def change_password(self, new_password: str) -> None:
+        self.password = new_password
+        print("User password changed.")
