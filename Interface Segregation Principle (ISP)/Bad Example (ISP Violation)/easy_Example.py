@@ -1,3 +1,8 @@
+# Interface Segregation Principle (ISP):
+
+# "A class should not be forced to implement interfaces or methods that it does not use."
+
+
 from abc import ABC, abstractmethod
 
 
