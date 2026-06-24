@@ -1,4 +1,91 @@
+"""
+DIP - Dependency Inversion Principle
 
+Problem:
+High-level modules should not depend on
+low-level modules.
+
+Solution:
+Both should depend on abstractions.
+
+Relationship:
+
+EmailService IS-A MessageService
+SMSService IS-A MessageService
+WhatsAppService IS-A MessageService
+
+Notification HAS-A MessageService
+
+Benefits:
+- Loose Coupling
+- Easy Testing
+- Easy Maintenance
+- Easy Extension
+"""
+
+from abc import ABC, abstractmethod
+
+
+# Abstract Contract
+class MessageService(ABC):
+
+    @abstractmethod
+    def send(self, message):
+        pass
+
+
+# IS-A Relationship
+class EmailService(MessageService):
+
+    def send(self, message):
+        print(f"Email Sent: {message}")
+
+
+# IS-A Relationship
+class SMSService(MessageService):
+
+    def send(self, message):
+        print(f"SMS Sent: {message}")
+
+
+# IS-A Relationship
+class WhatsAppService(MessageService):
+
+    def send(self, message):
+        print(f"WhatsApp Sent: {message}")
+
+
+# HAS-A Relationship
+class Notification:
+
+    def __init__(self, service: MessageService):
+        self.service = service
+
+    def send(self, message):
+        self.service.send(message)
+
+
+if __name__ == "__main__":
+
+    email = EmailService()
+    notification = Notification(email)
+
+    notification.send("Welcome User")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 """
 ==========================================================
 🚀 SOLID PRINCIPLE - D
